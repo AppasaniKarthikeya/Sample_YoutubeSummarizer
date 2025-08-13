@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube AI Summarizer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="popup-header">
+      <div class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 12l2 2 4-4"/>
+          <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
+        </svg>
+        <h2>AI Summarizer Pro</h2>
+      </div>
+    </div>
+
+    <div class="popup-content">
+      <div class="setup-section">
+        <h3>🔑 API Setup</h3>
+        <p>Default API key is configured. Optionally enter your own Google AI API key:</p>
+        
+        <div class="input-group">
+          <input type="password" id="apiKey" placeholder="Using default API key (optional: enter your own)">
+          <button id="toggleApiKey" class="toggle-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
+        
+        <div class="button-group">
+          <button id="saveApiKey" class="btn btn-primary">Save API Key</button>
+          <button id="testApiKey" class="btn btn-secondary">Test Connection</button>
+        </div>
+
+        <div class="api-info">
+          <details>
+            <summary>How to get Google AI API key</summary>
+            <ol>
+              <li>Visit <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a></li>
+              <li>Sign in with your Google account</li>
+              <li>Click "Create API Key"</li>
+              <li>Copy the generated key and paste it above</li>
+            </ol>
+          </details>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h3>⚙️ Settings</h3>
+        
+        <div class="setting-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="autoSummarize">
+            <span class="checkmark"></span>
+            Auto-summarize videos on page load
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="showTimestamps">
+            <span class="checkmark"></span>
+            Show timestamps in summaries
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <label class="checkbox-label">
+            <input type="checkbox" id="darkMode" checked>
+            <span class="checkmark"></span>
+            Dark mode interface
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <label for="summaryLength">Summary length:</label>
+          <select id="summaryLength">
+            <option value="short">Short (2-3 sentences)</option>
+            <option value="medium" selected>Medium (1-2 paragraphs)</option>
+            <option value="long">Detailed (3+ paragraphs)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="status-section">
+        <h3>📊 Status</h3>
+        <div class="status-item">
+          <span class="status-label">Extension Status:</span>
+          <span class="status-value" id="extensionStatus">Active</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">API Connection:</span>
+          <span class="status-value" id="apiStatus">Not configured</span>
+        </div>
+        <div class="status-item">
+          <span class="status-label">Current Page:</span>
+          <span class="status-value" id="currentPage">Loading...</span>
+        </div>
+      </div>
+
+      <div class="actions-section">
+        <button id="openYoutube" class="btn btn-primary full-width">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="23 7 16 12 23 17 23 7"/>
+            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+          </svg>
+          Open YouTube
+        </button>
+        
+        <button id="viewHelp" class="btn btn-secondary full-width">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          Help & Support
+        </button>
+      </div>
+
+      <div class="footer">
+        <p>Version 1.0.0 | Made with ❤️ for YouTube enthusiasts</p>
+        <div class="social-links">
+          <a href="#" target="_blank">Privacy</a>
+          <a href="#" target="_blank">Terms</a>
+          <a href="#" target="_blank">Support</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
